@@ -48,6 +48,9 @@
                 flex-direction: column;
             }
         }
+        #botmanWidgetRoot {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -58,14 +61,11 @@
         </div>
 
         <div class="links">
-            <a href="/botman/tinker">Tinker</a>
-            <a href="https://botman.io/docs" target="_blank">Documentation</a>
-            <a href="https://twitter.com/botman_io" target="_blank">News</a>
-            <a href="https://rauchg-slackin-jtdkltstsj.now.sh/" target="_blank">Slack</a>
-            <a href="https://github.com/botman/botman" target="_blank">GitHub</a>
+            <a href="javascript:;" id="clickn">Open ChatBot!</a>
         </div>
     </div>
 </div>
+
 <script>
 var botmanWidget = {
     title: 'Pondit ChatBot',
@@ -76,6 +76,30 @@ var botmanWidget = {
     userId: 1,
 };
 </script>
+
+<script>
+    var clickitem = document.getElementById("clickn");
+    clickitem.addEventListener("click", clickHere);
+
+    function clickHere() {
+        var botW = document.getElementById('botmanWidgetRoot');
+
+        if (botW.style.display === "block") {
+            botW.style.display = "none"
+            botmanChatWidget.close()
+        } else {
+            botW.style.display = "block";
+            botmanChatWidget.open()
+            setTimeout(function () {
+                //botmanChatWidget.say('quiz'+1);
+                botmanChatWidget.say('onboarding');
+                //botmanChatWidget.whisper('onboarding');
+            }, 1000)
+        }
+    }
+
+</script>
 <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
 </body>
 </html>
