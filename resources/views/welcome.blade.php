@@ -92,8 +92,8 @@ var botmanWidget = {
             botmanChatWidget.open()
             setTimeout(function () {
                 //botmanChatWidget.say('quiz'+1);
-                botmanChatWidget.say('onboarding');
-                //botmanChatWidget.whisper('onboarding');
+                //botmanChatWidget.say('onboarding');
+                botmanChatWidget.whisper('onboarding');
             }, 1000)
         }
     }
